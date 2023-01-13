@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./templates/css/artist.css">
+    <title>groupie-tracker</title>
+</head>
+<body>
+    <nav id="nav">
+        <div id="navlogo"><h3>Groupie<br>tracker</h3></div>
+           <div id="navright"><ul id="navitems">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#all-groupes">Groupes</a></li>
+                <li><a href="#">Events</a></li>
+            </ul>
+        <div id="navsearchbar">
+            <button class="btn-search"><img src="./templates/img/whitesearch.png" alt="O" id="loop"></button>
+    <input type="text" class="input-search" placeholder="Type to Search...">
+        </div></div>
+    </nav>
+    <div id="all-groupes"></div>
+    <div id="artist">
+    <h3 id="title">{{.Name}}</h3>
+    <div id="text-img">
+    <img  src="{{.Image}}" alt="image not found">
+    <div id="text">
+    <p>Creation date : {{.Creationdate}}<br>
+        Firstalbum : {{.Firstalbum}}<br>
+    Members :<br>  {{range .Members}} + {{.}}<br>{{end}}<br>Events:<br>
+    {{range .Relation}} + {{.}}<br>{{end}}</p>
+</div></div><footer id="footer">
+        <p>Zone-01</p>
+    </footer></div>
+    </body>
+</html>
