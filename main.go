@@ -82,7 +82,9 @@ func getdata() people {
 func artist(i int, Data people) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/"+Data[i].Nameformated {
-			http.Error(w, "Error 404 page not found", http.StatusNotFound)
+			t := template.Must(template.ParseFiles("404.html"))
+			var p people
+			t.Execute(w, p)
 			return
 		}
 		t := template.Must(template.ParseFiles("artist.html"))
@@ -99,7 +101,9 @@ func hundel(Data people) {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Error(w, "Error 404 page not found", http.StatusNotFound)
+		t := template.Must(template.ParseFiles("404.html"))
+		var p people
+		t.Execute(w, p)
 		return
 	}
 	Rp := getdata()
